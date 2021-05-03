@@ -1,0 +1,70 @@
+body {
+  background-color: lavender;
+  font-family: 'Amatic SC', cursive;
+  font-size: 170%;
+}
+
+.enter{
+    border-style:solid;
+    /* border-radius: 10%; */
+    border-width: 10px;
+    border-color:lightsteelblue;
+    text-align: center;
+
+}
+
+.greetDiv {
+  /* width: 200px; */
+  height: 200px;
+  position: fixed;
+  top: 30%;
+  left: 30%;
+  margin-top: -100px;
+  margin-left: -100px;
+}
+
+.answer {
+  width: 200px;
+  height: 200px;
+  position: fixed;
+  top: 75%;
+  left: 50%;
+  margin-top: -60px;
+  margin-left: -100px;
+  font-size: 180%;
+}
+.myCount{
+  margin-bottom: 150%;
+  margin-left: 120%;
+  font-size: 190%;
+}
+.radioBtns{
+ display: inline-block;
+}
+.greet {
+  background-color: white;
+  color: black;
+  border: 2px solid rgb(189, 184, 184);
+  padding: 10px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.greet:hover {
+  background-color: rgb(189, 184, 184);
+  color: white;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
