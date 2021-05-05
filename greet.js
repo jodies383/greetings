@@ -8,7 +8,7 @@ var theCount = document.querySelector(".myCount");
 
 var resetBtn = document.querySelector(".Reset");
 
-var greetCounter = 0;
+var greetCounter = 1;
 
 greetBtn.addEventListener('click', greetMe);
 greetBtn.addEventListener('click', updateCounter);
@@ -22,7 +22,7 @@ greetBtn.addEventListener('click', function () {
 
   localStorage['counted'] = greetCounter;
 });
-var greetCounter = 0;
+
 
 if (localStorage['counted']) {
 
