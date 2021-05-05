@@ -53,6 +53,22 @@ body {
   transition-duration: 0.4s;
   cursor: pointer;
 }
+.Reset{
+  background-color: white;
+  color: black;
+  border: 2px solid rgb(189, 184, 184);
+  padding: 10px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.Reset:hover{
+  background-color: rgb(189, 184, 184);
+  color: white;
+}
 
 .greet:hover {
   background-color: rgb(189, 184, 184);
