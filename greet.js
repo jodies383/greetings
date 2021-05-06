@@ -8,10 +8,15 @@ var theCount = document.querySelector(".myCount");
 
 var resetBtn = document.querySelector(".Reset");
 
+var warnName = document.querySelector(".warningName")
+
+var warningLang = document.querySelector(".warningLang")
+
 var greetCounter = 1;
 
 greetBtn.addEventListener('click', greetMe);
 greetBtn.addEventListener('click', updateCounter);
+greetBtn.addEventListener('click', noName)
 
 resetBtn.addEventListener('click', function () {
   localStorage.removeItem('counted');
@@ -43,6 +48,17 @@ function greetMe(param1) {
 
 
   return ansGreet;
+}
+function noName(param1) {
+  var checkedRadioBtn = document.querySelector("input[name='languages']:checked");
+  var param1 = enterName.value
+  if (param1 === "") {
+    return warnName.innerHTML = ("Please enter your name");
+  } if (!checkedRadioBtn){
+    return warningLang.innerHTML = ("Please select a language");
+  } if (param1 === "" && !checkedRadioBtn){
+    return warningLang.innerHTML = ("Please enter your name and select a language")
+  }
 }
 function updateCounter() {
 
