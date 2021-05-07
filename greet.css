@@ -31,10 +31,14 @@ body {
   color: red;
   font-weight: bold;
 }
+.warningBoth{
+  font-size: 85%;
+  color: red;
+  font-weight: bold;
+}
 .myGreet {
   text-align: center;
   font-size: 180%;
-  margin-left: 42%;
 }
 
 .myCount {
