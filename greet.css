@@ -12,12 +12,15 @@ body {
 }
 
 .greetDiv {
-  height: 200px;
+  /* height: 200px;
   position: fixed;
   top: 20%;
   left: 30%;
   margin-top: -100px;
-  margin-left: -100px;
+  margin-left: -100px; */
+  margin-left: 20%;
+  display: flex;
+  flex-direction: column;
   width: 50%;
 }
 
@@ -99,9 +102,12 @@ input[type=text], select {
   float: right;
   text-align: center;
 }
-@media(min-width:800px)  {
-  .greetDiv, .body {
-  width: 50%;
- max-width: 60rem; 
+
+@media (min-width:800px) {
+  .greetDiv {
+     display: flex;
+     flex-direction: column;
+     /* margin-left: 0.2rem; */
   }
+  
 }
