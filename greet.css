@@ -34,7 +34,7 @@ body {
   color: red;
   font-weight: bold;
 }
-.warningBoth{
+.warningBoth, .validName{
   font-size: 85%;
   color: red;
   font-weight: bold;
