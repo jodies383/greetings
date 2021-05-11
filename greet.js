@@ -41,9 +41,9 @@ var namesGreeted = existingNames || []
 var regex = /^[a-zA-Z]+$/;
 
 function addNames() {
+  var checkedRadioBtn = document.querySelector("input[name='languages']:checked")
 
-
-  if (!namesGreeted.includes(enterName.value) && regex.test(enterName.value)) {
+  if (!namesGreeted.includes(enterName.value) && regex.test(enterName.value) && checkedRadioBtn) {
     namesGreeted.push(enterName.value)
 
   }

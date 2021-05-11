@@ -101,10 +101,11 @@ input[type=text], select {
 .counter {
   float: right;
   text-align: center;
+  margin-left: 79%;
 }
 
 @media (min-width:800px) {
-  .greetDiv {
+  .greetDiv, .counter {
      display: flex;
      flex-direction: column;
      /* margin-left: 0.2rem; */
