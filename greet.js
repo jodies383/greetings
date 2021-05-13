@@ -43,8 +43,8 @@ var regex = /^[a-zA-Z]+$/;
 function addNames() {
   var checkedRadioBtn = document.querySelector("input[name='languages']:checked")
 
-  if (!namesGreeted.includes(enterName.value) && regex.test(enterName.value) && checkedRadioBtn) {
-    namesGreeted.push(enterName.value)
+  if (!namesGreeted.includes(enterName.value.toUpperCase()) && regex.test(enterName.value.toUpperCase()) && checkedRadioBtn) {
+    namesGreeted.push(enterName.value.toUpperCase())
 
   }
 
