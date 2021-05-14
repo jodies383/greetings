@@ -4,7 +4,7 @@ var ansGreet = document.querySelector(".myGreet");
 
 var enterName = document.querySelector(".greetMe");
 
-var theCount = document.querySelector(".myCount");
+var theCounter = document.querySelector(".myCount");
 
 var resetBtn = document.querySelector(".Reset");
 
@@ -17,17 +17,11 @@ var warnBoth = document.querySelector(".warningBoth")
 var validName = document.querySelector(".validName")
 
 
+let greetRef = theGreet();
 
-greetBtn.addEventListener('click', greetMe);
-greetBtn.addEventListener('click', updateCounter);
-greetBtn.addEventListener('click', noName);
+greetBtn.addEventListener('click', greeting);
+greetBtn.addEventListener('click', addWarnings);
 greetBtn.addEventListener('click', addNames);
-
-resetBtn.addEventListener('click', function () {
-  localStorage.removeItem('counted'),
-    localStorage.removeItem('namesList');
-});
-
 
 var existingNames = []
 
@@ -50,71 +44,36 @@ function addNames() {
 
   localStorage.setItem('namesList', JSON.stringify(namesGreeted));
 
-  theCount.innerHTML = namesGreeted.length;
+  theCounter.innerHTML = namesGreeted.length;
+  checkedRadioBtn.checked = false
+  enterName.value = ""
 }
 
-
-
-
-
-function greetMe(param1) {
-  var checkedRadioBtn = document.querySelector("input[name='languages']:checked").value;
-  var param1 = enterName.value
-
-  if (regex.test(enterName.value)) {
-    if (checkedRadioBtn === "English") {
-      validName.innerHTML = ("");
-
-      warningLang.innerHTML = ("")
-      ansGreet.innerHTML = ("Hello, " + param1);
-    }
-    else if (checkedRadioBtn === "Afrikaans") {
-      validName.innerHTML = ("");
-
-      warningLang.innerHTML = ("")
-      ansGreet.innerHTML = ("Goeie More, " + param1);
-    }
-    else if (checkedRadioBtn === "isiXhosa") {
-      validName.innerHTML = ("");
-
-      warningLang.innerHTML = ("")
-      ansGreet.innerHTML = ("Molo, " + param1);
-    }
-  }
-  else {
-    validName.innerHTML = ("Please enter a name");
-  }
-}
-
-function noName(param1) {
+function greeting() {
   var checkedRadioBtn = document.querySelector("input[name='languages']:checked");
-  var param1 = enterName.value
+  ansGreet.innerHTML = ""
+  if (checkedRadioBtn) {
+
+    greetRef.greetMe(enterName.value, checkedRadioBtn.value);
+    ansGreet.innerHTML = greetRef.greetMe(enterName.value, checkedRadioBtn.value);
 
 
-  if ((param1 === "" && !checkedRadioBtn)) {
-    warningLang.innerHTML = ("")
-    warnBoth.innerHTML = ("Please enter your name and select a language")
-  } else {
-    warnBoth.innerHTML = ("")
+    validName.innerHTML = greetRef.removeValidName(enterName.value)
   }
-  if (param1 === "" && checkedRadioBtn) {
-    ansGreet.innerHTML = ("")
-   
-  } else if (!checkedRadioBtn && param1) {
-    warningLang.innerHTML = ("Please select a language");
-  } else if (param1 === enterName.value) {
-    warnName.innerHTML = ("")
+}
+function addWarnings() {
+  var uncheckedRadioBtn = document.querySelector("input[name='languages']:checked");
 
+
+  warnBoth.innerHTML = greetRef.noName(enterName.value, uncheckedRadioBtn);
+  if (warningLang.innerHTML = greetRef.warnLang(enterName.value, uncheckedRadioBtn)) {
+    validName.innerHTML = ""
   }
+
 
 }
-function updateCounter() {
-
-  return theCount.innerHTML = namesGreeted.length;
-
-}
-
-theCount.innerHTML = namesGreeted.length;
-
-
-
+resetBtn.addEventListener('click', function () {
+  localStorage.removeItem('counted'),
+    localStorage.removeItem('namesList');
+});
+theCounter.innerHTML = greetRef.theCount();

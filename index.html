@@ -31,20 +31,22 @@
                 <div>
                     <span class="warningBoth"></span>
                 </div>
-            <div>
-                <span class="validName"></span>
-            </div>
+                <div>
+                    <span class="validName"></span>
+                </div>
             </div>
             <input type="text" name="" value="" placeholder="enter your name..." class="greetMe">
         </div>
         <div class="radioBtns">
-            <input type="radio" name="languages" class="langRadio" value="English">
-            <span class="label-body">English</span>
+            <label class="english">
+                <input type="radio" name="languages" class="langRadio" value="English">
+                <span class="label-body">English</span>
             </label>
-            <label class="">
+            <label class="Afrikaans">
                 <input type="radio" name="languages" class="langRadio" value="Afrikaans">
                 <span class="label-body">Afrikaans</span>
             </label>
+            <label class="isixhosa">
             <input type="radio" name="languages" class="langRadio" value="isiXhosa">
             <span class="label-body">isiXhosa</span>
             </label>
@@ -65,12 +67,15 @@
                 <span class="myCount"></span>
             </div>
             <div>
-                <button onClick="window.location.reload();" class="button-primary Reset" type="button" name="button">Reset</button>
+                <button onClick="window.location.reload();" class="button-primary Reset" type="button"
+                    name="button">Reset</button>
             </div>
         </div>
     </div>
 
+    <script src="greetFactory.js" charset="utf-8"></script>
+    <script src="greet.js" charset="utf-8"></script>
 </body>
-<script src="greet.js"></script>
+
 
 </html>
