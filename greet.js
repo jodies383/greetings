@@ -21,8 +21,7 @@ let greetRef = theGreet();
 
 greetBtn.addEventListener('click', greeting);
 greetBtn.addEventListener('click', addWarnings);
-greetBtn.addEventListener('click', addNames);
-
+greetBtn.addEventListener('click', theNames);
 var existingNames = []
 
 if (localStorage['namesList']) {
@@ -34,26 +33,17 @@ var namesGreeted = existingNames || []
 
 var regex = /^[a-zA-Z]+$/;
 
-function addNames() {
-  var checkedRadioBtn = document.querySelector("input[name='languages']:checked")
+function theNames(){
+  greetRef.addNames();
 
-  if (!namesGreeted.includes(enterName.value.toUpperCase()) && regex.test(enterName.value.toUpperCase()) && checkedRadioBtn) {
-    namesGreeted.push(enterName.value.toUpperCase())
-
-  }
-
-  localStorage.setItem('namesList', JSON.stringify(namesGreeted));
-
-  theCounter.innerHTML = namesGreeted.length;
-  checkedRadioBtn.checked = false
-  enterName.value = ""
 }
-
 function greeting() {
+  
   var checkedRadioBtn = document.querySelector("input[name='languages']:checked");
   ansGreet.innerHTML = ""
   if (checkedRadioBtn) {
 
+   
     greetRef.greetMe(enterName.value, checkedRadioBtn.value);
     ansGreet.innerHTML = greetRef.greetMe(enterName.value, checkedRadioBtn.value);
 

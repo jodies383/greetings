@@ -1,6 +1,31 @@
 function theGreet() {
 
+    var existingNames = []
 
+    if (localStorage['namesList']) {
+      existingNames = JSON.parse(localStorage.getItem('namesList'));
+    
+    }
+    
+    var namesGreeted = existingNames || []
+    
+    var regex = /^[a-zA-Z]+$/;
+    
+    function addNames() {
+      var checkedRadioBtn = document.querySelector("input[name='languages']:checked")
+    
+      if (!namesGreeted.includes(enterName.value.toUpperCase()) && regex.test(enterName.value.toUpperCase()) && checkedRadioBtn) {
+        namesGreeted.push(enterName.value.toUpperCase())
+    
+      }
+    
+      localStorage.setItem('namesList', JSON.stringify(namesGreeted));
+    
+      theCounter.innerHTML = namesGreeted.length;
+      checkedRadioBtn.checked = false
+      enterName.value = ""
+    }
+    
     function theCount() {
         return namesGreeted.length;
     }
@@ -51,7 +76,7 @@ function theGreet() {
     }
 
     return {
-
+        addNames,
         theCount,
         greetMe,
         removeValidName,
