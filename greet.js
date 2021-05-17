@@ -21,29 +21,29 @@ let greetRef = theGreet();
 
 greetBtn.addEventListener('click', greeting);
 greetBtn.addEventListener('click', addWarnings);
-greetBtn.addEventListener('click', theNames);
-var existingNames = []
+greetBtn.addEventListener('click', storeNames);
 
-if (localStorage['namesList']) {
-  existingNames = JSON.parse(localStorage.getItem('namesList'));
 
+
+function storeNames() {
+  var checkedRadioBtn = document.querySelector("input[name='languages']:checked")
+
+
+ 
+  greetRef.addNames(enterName.value, checkedRadioBtn)
+ 
+  theCounter.innerHTML = greetRef.theCount();
+  checkedRadioBtn.checked = false
+  enterName.value = ""
 }
 
-var namesGreeted = existingNames || []
-
-var regex = /^[a-zA-Z]+$/;
-
-function theNames(){
-  greetRef.addNames();
-
-}
 function greeting() {
-  
+
   var checkedRadioBtn = document.querySelector("input[name='languages']:checked");
   ansGreet.innerHTML = ""
   if (checkedRadioBtn) {
 
-   
+
     greetRef.greetMe(enterName.value, checkedRadioBtn.value);
     ansGreet.innerHTML = greetRef.greetMe(enterName.value, checkedRadioBtn.value);
 
