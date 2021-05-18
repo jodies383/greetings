@@ -1,12 +1,4 @@
-function theGreet() {
-
-    if (localStorage['namesList']) {
-        existingNames = JSON.parse(localStorage.getItem('namesList'));
-
-    }
-
-    var existingNames = []
-
+function theGreet(existingNames) {
 
 
     var namesGreeted = existingNames || []

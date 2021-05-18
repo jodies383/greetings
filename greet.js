@@ -17,11 +17,20 @@ var warnBoth = document.querySelector(".warningBoth")
 var validName = document.querySelector(".validName")
 
 
-let greetRef = theGreet();
 
 greetBtn.addEventListener('click', greeting);
 greetBtn.addEventListener('click', addWarnings);
 greetBtn.addEventListener('click', storeNames);
+
+
+var existingNames;
+
+if (localStorage['namesList']) {
+  existingNames = JSON.parse(localStorage.getItem('namesList'));
+
+}
+
+let greetRef = theGreet(existingNames);
 
 
 
@@ -29,9 +38,8 @@ function storeNames() {
   var checkedRadioBtn = document.querySelector("input[name='languages']:checked")
 
 
- 
   greetRef.addNames(enterName.value, checkedRadioBtn)
- 
+
   theCounter.innerHTML = greetRef.theCount();
   checkedRadioBtn.checked = false
   enterName.value = ""
@@ -54,11 +62,19 @@ function greeting() {
 function addWarnings() {
   var uncheckedRadioBtn = document.querySelector("input[name='languages']:checked");
 
+  setTimeout(function(){   warnBoth.innerHTML = "";
+  }, 2000);
 
-  warnBoth.innerHTML = greetRef.noName(enterName.value, uncheckedRadioBtn);
-  if (warningLang.innerHTML = greetRef.warnLang(enterName.value, uncheckedRadioBtn)) {
-    validName.innerHTML = ""
-  }
+  setTimeout(function(){   warningLang.innerHTML = "";
+  }, 2000);
+
+  setTimeout(function(){   validName.innerHTML = "";
+  }, 2000);
+
+  warnBoth.innerHTML = greetRef.noName(enterName.value, uncheckedRadioBtn)
+
+  warningLang.innerHTML = greetRef.warnLang(enterName.value, uncheckedRadioBtn)
+  
 
 
 }
